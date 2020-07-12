@@ -20,7 +20,7 @@ def filter_dict(elements, filter_key, edge_value):
     filtered_list = []
     for item in elements:
         try:
-            if item[filter_key] >= edge_value:
+            if item[filter_key] > edge_value:
                 filtered_list.append(item)
         except TypeError:
             filtered_list = []
