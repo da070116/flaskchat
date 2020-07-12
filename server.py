@@ -1,10 +1,20 @@
 import time
 from datetime import datetime
 from flask import Flask, __version__, request, abort
-from source import filter_dict
+
+
+def filter_dict(elements, filter_key, edge_value):
+    filtered_list = []
+    for item in elements:
+        try:
+            if item[filter_key] > edge_value:
+                filtered_list.append(item)
+        except TypeError:
+            filtered_list = []
+    return filtered_list
+
 
 app = Flask(__name__)
-
 messages_list = [
     dict(user="Guido", time=4000, text="I've created a new program language"),
     dict(user="Tim", time=7000, text="Hmm...  Beautiful is better than ugly. Guido, add something?"),
@@ -19,7 +29,6 @@ users_dict = {
     'John': 'Doe',
     'Jane': 'Doe'
 }
-
 
 
 @app.route('/users')
