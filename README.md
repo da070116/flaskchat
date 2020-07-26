@@ -1,2 +1,2 @@
 # flaskchat
-SkillBox intensive
+Разработка простейшего чата с использованием Flask и Qt5 в рамках интенсива Skillbox 
